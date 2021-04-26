@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../project_machineEtat.srcs/sources_1/new/FSM_mult1.vhd" \
+"../../../../../simu_FSM.vhd" \
+
+# Do not sort compile order
+nosort
