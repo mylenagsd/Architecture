@@ -1,0 +1,89 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
+| Date         : Tue Jan 14 14:10:31 2020
+| Host         : n7-b301-14 running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file TOP_LEVEL_control_sets_placed.rpt
+| Design       : TOP_LEVEL
+| Device       : xc7a100t
+--------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |    22 |
+| Unused register locations in slices containing registers |    96 |
++----------------------------------------------------------+-------+
+
+
+2. Histogram
+------------
+
++--------+--------------+
+| Fanout | Control Sets |
++--------+--------------+
+|      2 |           12 |
+|      8 |            1 |
+|     10 |            1 |
+|    16+ |            8 |
++--------+--------------+
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              84 |           11 |
+| No           | No                    | Yes                    |             188 |           34 |
+| No           | Yes                   | No                     |               2 |            1 |
+| Yes          | No                    | No                     |              66 |           21 |
+| Yes          | No                    | Yes                    |             148 |           25 |
+| Yes          | Yes                   | No                     |               0 |            0 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------+---------------------------+-----------------------+------------------+----------------+
+|  Clock Signal  |       Enable Signal       |    Set/Reset Signal   | Slice Load Count | Bel Load Count |
++----------------+---------------------------+-----------------------+------------------+----------------+
+|  clk_IBUF_BUFG |                           | C3/C1/C2/inst1/dp_reg |                1 |              2 |
+|  clk_IBUF_BUFG | C1/a1/oi_i_1_n_0          | C1/a2/oi_reg          |                1 |              2 |
+|  clk_IBUF_BUFG | C1/a1/mesure_done_i_1_n_0 | C1/a2/oi_reg          |                1 |              2 |
+|  clk_IBUF_BUFG | C1/a5/mot[2]_i_1_n_0      |                       |                1 |              2 |
+|  clk_IBUF_BUFG | C1/a5/mot[4]_i_1_n_0      |                       |                1 |              2 |
+|  clk_IBUF_BUFG | C1/a5/mot[6]_i_1_n_0      |                       |                1 |              2 |
+|  clk_IBUF_BUFG | C1/a5/mot[7]_i_1_n_0      |                       |                1 |              2 |
+|  clk_IBUF_BUFG | C1/a5/mot[1]_i_1_n_0      |                       |                1 |              2 |
+|  clk_IBUF_BUFG | C1/a5/mot[8]_i_1_n_0      |                       |                1 |              2 |
+|  clk_IBUF_BUFG | C1/a5/mot[3]_i_1_n_0      |                       |                1 |              2 |
+|  clk_IBUF_BUFG | C1/a5/mot[5]_i_1_n_0      |                       |                1 |              2 |
+|  clk_IBUF_BUFG | C1/a5/mot[0]_i_1_n_0      |                       |                1 |              2 |
+|  clk_IBUF_BUFG | C1/a5/i                   | rst_IBUF              |                2 |              8 |
+|  clk_IBUF_BUFG | C1/a1/word_tx[6]_i_1_n_0  | C1/a2/oi_reg          |                2 |             10 |
+|  clk_IBUF_BUFG |                           | C1/a2/oi_reg          |                4 |             16 |
+|  clk_IBUF_BUFG | C2/Q[0]                   |                       |                4 |             16 |
+|  clk_IBUF_BUFG | C_F_IBUF                  |                       |                8 |             32 |
+|  clk_IBUF_BUFG | C1/a5/count               | rst_IBUF              |                7 |             36 |
+|  clk_IBUF_BUFG | C1/a4/count               | rst_IBUF              |                5 |             36 |
+|  clk_IBUF_BUFG | C1/a1/count               | C1/a2/oi_reg          |                7 |             54 |
+|  clk_IBUF_BUFG |                           |                       |               11 |             84 |
+|  clk_IBUF_BUFG |                           | rst_IBUF              |               30 |            172 |
++----------------+---------------------------+-----------------------+------------------+----------------+
+
+
