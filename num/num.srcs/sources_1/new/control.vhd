@@ -1,0 +1,144 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity control is
+  Port (rst : in STD_LOGIC;
+        clk : in STD_LOGIC;
+        done_init : in STD_LOGIC;
+        done_write : in STD_LOGIC;
+        done_read : in STD_LOGIC;
+        H1s : in STD_LOGIC;
+        oi : out STD_LOGIC;
+        en_init : out STD_LOGIC;
+        en_write : out STD_LOGIC;
+        en_read : out STD_LOGIC;
+        mesure_done : out STD_LOGIC;
+        word_tx : out STD_LOGIC_VECTOR (7 downto 0));
+end control;
+
+architecture Behavioral of control is
+type etat is (INIT, SKIP_ROM, CONVERT, ASK_READ, READ, READY);
+signal etatp : etat;
+signal count : integer range 0 to 100000000;
+signal j : integer range 0 to 7;
+
+begin
+    process(rst, clk, H1s)
+    begin
+        if (rst = '1') then
+            oi <= '0';
+            count <= 0;
+            en_init <= '1';
+            en_write <= '0';
+            en_read <= '0';
+            mesure_done <= '0';
+            word_tx <= "00000000";
+            etatp <= INIT;
+        elsif (H1s = '1') then
+            oi <= '0';
+            count <= 0;
+            en_init <= '1';
+            en_write <= '0';
+            en_read <= '0';
+            mesure_done <= '0';
+            word_tx <= "00000000";
+            etatp <= INIT;
+        elsif (rising_edge(clk)) then
+            case etatp is
+                when INIT => 
+                    if (done_init = '1') then
+                        en_write <= '1';
+                        etatp <= SKIP_ROM;
+                    else
+                        en_init <= '0';
+                        en_write <= '0';
+                        en_read <= '0';
+                        mesure_done <= '0';
+                        word_tx <= "00000000";
+                        etatp <= INIT;
+                    end if;
+                    
+                when SKIP_ROM => 
+                    if (done_write = '1' and j = 0) then
+                        en_write <= '1';
+                        etatp <= CONVERT;
+                    elsif (done_write = '1' and j = 1) then
+                        en_write <= '1';
+                        etatp <= ASK_READ;
+                    else
+                        en_init <= '0';
+                        en_write <= '0';
+                        en_read <= '0';
+                        mesure_done <= '0';
+                        word_tx <= "11001100"; --CCh
+                        etatp <= SKIP_ROM; 
+                    end if;
+                    
+                when CONVERT => 
+                    word_tx <= "01000100"; --44h
+                    oi <= '1';
+                    j <= 1;
+                    if (done_write = '1') then
+                         if (count >= 75000000) then
+                             en_init <= '1';
+                             count <= 0;
+                             etatp <= INIT;
+                         else
+                             count <= count +1;
+                             en_init <= '0';
+                             en_write <= '0';
+                             en_read <= '0';
+                             mesure_done <= '0';
+                             etatp <= CONVERT;
+                         end if;
+                    else
+                        count <= count +1;
+                        en_init <= '0';
+                        en_write <= '0';
+                        en_read <= '0';
+                        mesure_done <= '0';
+                        etatp <= CONVERT;
+                    end if;
+                    
+                when ASK_READ => 
+                    if (done_write = '1') then
+                        oi <= '0';
+                        j <= 0;
+                        en_read <= '1';
+                        etatp <= READ;
+                    else
+                        en_init <= '0';
+                        en_write <= '0';
+                        en_read <= '0';
+                        mesure_done <= '0';
+                        word_tx <= "10111110"; --BEh
+                        etatp <= ASK_READ;
+                    end if;
+                    
+                when READ => 
+                    if (done_read = '1') then
+                        etatp <= READY;
+                    else
+                        en_init <= '0';
+                        en_write <= '0';
+                        en_read <= '0';
+                        mesure_done <= '0';
+                        word_tx <= "00000000"; 
+                        etatp <= READ;
+                     end if;
+                     
+                when READY => 
+                        en_init <= '1';
+                        en_write <= '0';
+                        en_read <= '0';
+                        mesure_done <= '1';
+                        word_tx <= "00000000"; 
+                        etatp <= INIT;    
+                when others => 
+                    etatp <= INIT;
+            end case;
+        end if;
+    end process;
+
+end Behavioral;
+
