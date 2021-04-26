@@ -1,0 +1,455 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
+| Date         : Mon Mar  2 22:31:57 2020
+| Host         : DESKTOP-2LM1SS0 running 64-bit major release  (build 9200)
+| Command      : report_timing_summary -file mytiming.rpt
+| Design       : FSM_Mult
+| Device       : 7a100ti-csg324
+| Speed File   : -1L  PRODUCTION 1.22 2018-03-21
+------------------------------------------------------------------------------------
+
+Timing Summary Report
+
+------------------------------------------------------------------------------------------------
+| Timer Settings
+| --------------
+------------------------------------------------------------------------------------------------
+
+  Enable Multi Corner Analysis               :  Yes
+  Enable Pessimism Removal                   :  Yes
+  Pessimism Removal Resolution               :  Nearest Common Node
+  Enable Input Delay Default Clock           :  No
+  Enable Preset / Clear Arcs                 :  No
+  Disable Flight Delays                      :  No
+  Ignore I/O Paths                           :  No
+  Timing Early Launch at Borrowing Latches   :  false
+
+  Corner  Analyze    Analyze    
+  Name    Max Paths  Min Paths  
+  ------  ---------  ---------  
+  Slow    Yes        Yes        
+  Fast    Yes        Yes        
+
+
+
+check_timing report
+
+Table of Contents
+-----------------
+1. checking no_clock
+2. checking constant_clock
+3. checking pulse_width_clock
+4. checking unconstrained_internal_endpoints
+5. checking no_input_delay
+6. checking no_output_delay
+7. checking multiple_clock
+8. checking generated_clocks
+9. checking loops
+10. checking partial_input_delay
+11. checking partial_output_delay
+12. checking latch_loops
+
+1. checking no_clock
+--------------------
+ There are 0 register/latch pins with no clock.
+
+
+2. checking constant_clock
+--------------------------
+ There are 0 register/latch pins with constant_clock.
+
+
+3. checking pulse_width_clock
+-----------------------------
+ There are 0 register/latch pins which need pulse_width check
+
+
+4. checking unconstrained_internal_endpoints
+--------------------------------------------
+ There are 0 pins that are not constrained for maximum delay.
+
+ There are 0 pins that are not constrained for maximum delay due to constant clock.
+
+
+5. checking no_input_delay
+--------------------------
+ There are 18 input ports with no input delay specified. (HIGH)
+
+ There are 0 input ports with no input delay but user has a false path constraint.
+
+
+6. checking no_output_delay
+---------------------------
+ There are 17 ports with no output delay specified. (HIGH)
+
+ There are 0 ports with no output delay but user has a false path constraint
+
+ There are 0 ports with no output delay but with a timing clock defined on it or propagating through it
+
+
+7. checking multiple_clock
+--------------------------
+ There are 0 register/latch pins with multiple clocks.
+
+
+8. checking generated_clocks
+----------------------------
+ There are 0 generated clocks that are not connected to a clock source.
+
+
+9. checking loops
+-----------------
+ There are 0 combinational loops in the design.
+
+
+10. checking partial_input_delay
+--------------------------------
+ There are 0 input ports with partial input delay specified.
+
+
+11. checking partial_output_delay
+---------------------------------
+ There are 0 ports with partial output delay specified.
+
+
+12. checking latch_loops
+------------------------
+ There are 0 combinational latch loops in the design through latch input
+
+
+
+------------------------------------------------------------------------------------------------
+| Design Timing Summary
+| ---------------------
+------------------------------------------------------------------------------------------------
+
+    WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+    -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+      7.259        0.000                      0                  166        0.140        0.000                      0                  166        4.500        0.000                       0                    70  
+
+
+All user specified timing constraints are met.
+
+
+------------------------------------------------------------------------------------------------
+| Clock Summary
+| -------------
+------------------------------------------------------------------------------------------------
+
+Clock        Waveform(ns)       Period(ns)      Frequency(MHz)
+-----        ------------       ----------      --------------
+sys_clk_pin  {0.000 5.000}      10.000          100.000         
+
+
+------------------------------------------------------------------------------------------------
+| Intra Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+-----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+sys_clk_pin         7.259        0.000                      0                  121        0.140        0.000                      0                  121        4.500        0.000                       0                    70  
+
+
+------------------------------------------------------------------------------------------------
+| Inter Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| Other Path Groups Table
+| -----------------------
+------------------------------------------------------------------------------------------------
+
+Path Group         From Clock         To Clock               WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------         ----------         --------               -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+**async_default**  sys_clk_pin        sys_clk_pin              7.513        0.000                      0                   45        0.686        0.000                      0                   45  
+
+
+------------------------------------------------------------------------------------------------
+| Timing Details
+| --------------
+------------------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  sys_clk_pin
+  To Clock:  sys_clk_pin
+
+Setup :            0  Failing Endpoints,  Worst Slack        7.259ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.140ns,  Total Violation        0.000ns
+PW    :            0  Failing Endpoints,  Worst Slack        4.500ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             7.259ns  (required time - arrival time)
+  Source:                 sauv_B_reg[3]/C
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            FSM_onehot_present_state_reg[3]/D
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        2.605ns  (logic 0.897ns (34.434%)  route 1.708ns (65.566%))
+  Logic Levels:           2  (LUT6=2)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.704ns = ( 12.704 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.965ns
+    Clock Pessimism Removal (CPR):    0.116ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    E3                                                0.000     0.000 r  H (IN)
+                         net (fo=0)                   0.000     0.000    H
+    E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  H_IBUF_inst/O
+                         net (fo=1, unplaced)         0.803     2.285    H_IBUF
+                         BUFG (Prop_bufg_I_O)         0.096     2.381 r  H_IBUF_BUFG_inst/O
+                         net (fo=69, unplaced)        0.584     2.965    H_IBUF_BUFG
+                         FDCE                                         r  sauv_B_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+                         FDCE (Prop_fdce_C_Q)         0.478     3.443 f  sauv_B_reg[3]/Q
+                         net (fo=1, unplaced)         0.965     4.408    sauv_B[3]
+                         LUT6 (Prop_lut6_I0_O)        0.295     4.703 f  FSM_onehot_present_state[7]_i_2/O
+                         net (fo=2, unplaced)         0.743     5.446    FSM_onehot_present_state[7]_i_2_n_0
+                         LUT6 (Prop_lut6_I1_O)        0.124     5.570 r  FSM_onehot_present_state[3]_i_1/O
+                         net (fo=1, unplaced)         0.000     5.570    FSM_onehot_present_state[3]_i_1_n_0
+                         FDCE                                         r  FSM_onehot_present_state_reg[3]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    E3                                                0.000    10.000 r  H (IN)
+                         net (fo=0)                   0.000    10.000    H
+    E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  H_IBUF_inst/O
+                         net (fo=1, unplaced)         0.763    12.174    H_IBUF
+                         BUFG (Prop_bufg_I_O)         0.091    12.265 r  H_IBUF_BUFG_inst/O
+                         net (fo=69, unplaced)        0.439    12.704    H_IBUF_BUFG
+                         FDCE                                         r  FSM_onehot_present_state_reg[3]/C
+                         clock pessimism              0.116    12.820    
+                         clock uncertainty           -0.035    12.784    
+                         FDCE (Setup_fdce_C_D)        0.044    12.828    FSM_onehot_present_state_reg[3]
+  -------------------------------------------------------------------
+                         required time                         12.828    
+                         arrival time                          -5.570    
+  -------------------------------------------------------------------
+                         slack                                  7.259    
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.140ns  (arrival time - required time)
+  Source:                 decalage_A_reg[0]/C
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            decalage_A_reg[1]/D
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        0.384ns  (logic 0.245ns (63.855%)  route 0.139ns (36.145%))
+  Logic Levels:           1  (LUT3=1)
+  Clock Path Skew:        0.145ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.082ns
+    Source Clock Delay      (SCD):    0.728ns
+    Clock Pessimism Removal (CPR):    0.209ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    E3                                                0.000     0.000 r  H (IN)
+                         net (fo=0)                   0.000     0.000    H
+    E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  H_IBUF_inst/O
+                         net (fo=1, unplaced)         0.338     0.588    H_IBUF
+                         BUFG (Prop_bufg_I_O)         0.026     0.614 r  H_IBUF_BUFG_inst/O
+                         net (fo=69, unplaced)        0.114     0.728    H_IBUF_BUFG
+                         FDCE                                         r  decalage_A_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+                         FDCE (Prop_fdce_C_Q)         0.147     0.875 r  decalage_A_reg[0]/Q
+                         net (fo=3, unplaced)         0.139     1.014    decalage_A[0]
+                         LUT3 (Prop_lut3_I2_O)        0.098     1.112 r  decalage_A[1]_i_1/O
+                         net (fo=1, unplaced)         0.000     1.112    decalage_A[1]_i_1_n_0
+                         FDCE                                         r  decalage_A_reg[1]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    E3                                                0.000     0.000 r  H (IN)
+                         net (fo=0)                   0.000     0.000    H
+    E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  H_IBUF_inst/O
+                         net (fo=1, unplaced)         0.356     0.794    H_IBUF
+                         BUFG (Prop_bufg_I_O)         0.029     0.823 r  H_IBUF_BUFG_inst/O
+                         net (fo=69, unplaced)        0.259     1.082    H_IBUF_BUFG
+                         FDCE                                         r  decalage_A_reg[1]/C
+                         clock pessimism             -0.209     0.873    
+                         FDCE (Hold_fdce_C_D)         0.099     0.972    decalage_A_reg[1]
+  -------------------------------------------------------------------
+                         required time                         -0.972    
+                         arrival time                           1.112    
+  -------------------------------------------------------------------
+                         slack                                  0.140    
+
+
+
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         sys_clk_pin
+Waveform(ns):       { 0.000 5.000 }
+Period(ns):         10.000
+Sources:            { H }
+
+Check Type        Corner  Lib Pin  Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location  Pin
+Min Period        n/a     BUFG/I   n/a            2.155         10.000      7.845                H_IBUF_BUFG_inst/I
+Low Pulse Width   Slow    FDCE/C   n/a            0.500         5.000       4.500                En_reg/C
+High Pulse Width  Slow    FDCE/C   n/a            0.500         5.000       4.500                En_reg/C
+
+
+
+---------------------------------------------------------------------------------------------------
+Path Group:  **async_default**
+From Clock:  sys_clk_pin
+  To Clock:  sys_clk_pin
+
+Setup :            0  Failing Endpoints,  Worst Slack        7.513ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.686ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             7.513ns  (required time - arrival time)
+  Source:                 FSM_onehot_present_state_reg[1]/C
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            En_reg/CLR
+                            (recovery check against rising-edge clock sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             **async_default**
+  Path Type:              Recovery (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        1.955ns  (logic 0.773ns (39.540%)  route 1.182ns (60.460%))
+  Logic Levels:           1  (LUT2=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.704ns = ( 12.704 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.965ns
+    Clock Pessimism Removal (CPR):    0.116ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    E3                                                0.000     0.000 r  H (IN)
+                         net (fo=0)                   0.000     0.000    H
+    E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  H_IBUF_inst/O
+                         net (fo=1, unplaced)         0.803     2.285    H_IBUF
+                         BUFG (Prop_bufg_I_O)         0.096     2.381 r  H_IBUF_BUFG_inst/O
+                         net (fo=69, unplaced)        0.584     2.965    H_IBUF_BUFG
+                         FDCE                                         r  FSM_onehot_present_state_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+                         FDCE (Prop_fdce_C_Q)         0.478     3.443 f  FSM_onehot_present_state_reg[1]/Q
+                         net (fo=4, unplaced)         0.494     3.937    FSM_onehot_present_state_reg_n_0_[1]
+                         LUT2 (Prop_lut2_I0_O)        0.295     4.232 f  sauv_B[7]_i_1/O
+                         net (fo=45, unplaced)        0.688     4.920    sauv_B[7]_i_1_n_0
+                         FDCE                                         f  En_reg/CLR
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    E3                                                0.000    10.000 r  H (IN)
+                         net (fo=0)                   0.000    10.000    H
+    E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  H_IBUF_inst/O
+                         net (fo=1, unplaced)         0.763    12.174    H_IBUF
+                         BUFG (Prop_bufg_I_O)         0.091    12.265 r  H_IBUF_BUFG_inst/O
+                         net (fo=69, unplaced)        0.439    12.704    H_IBUF_BUFG
+                         FDCE                                         r  En_reg/C
+                         clock pessimism              0.116    12.820    
+                         clock uncertainty           -0.035    12.784    
+                         FDCE (Recov_fdce_C_CLR)     -0.352    12.432    En_reg
+  -------------------------------------------------------------------
+                         required time                         12.432    
+                         arrival time                          -4.920    
+  -------------------------------------------------------------------
+                         slack                                  7.513    
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.686ns  (arrival time - required time)
+  Source:                 FSM_onehot_present_state_reg[1]/C
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            En_reg/CLR
+                            (removal check against rising-edge clock sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             **async_default**
+  Path Type:              Removal (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        0.743ns  (logic 0.245ns (32.964%)  route 0.498ns (67.036%))
+  Logic Levels:           1  (LUT2=1)
+  Clock Path Skew:        0.145ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.082ns
+    Source Clock Delay      (SCD):    0.728ns
+    Clock Pessimism Removal (CPR):    0.209ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    E3                                                0.000     0.000 r  H (IN)
+                         net (fo=0)                   0.000     0.000    H
+    E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  H_IBUF_inst/O
+                         net (fo=1, unplaced)         0.338     0.588    H_IBUF
+                         BUFG (Prop_bufg_I_O)         0.026     0.614 r  H_IBUF_BUFG_inst/O
+                         net (fo=69, unplaced)        0.114     0.728    H_IBUF_BUFG
+                         FDCE                                         r  FSM_onehot_present_state_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+                         FDCE (Prop_fdce_C_Q)         0.147     0.875 f  FSM_onehot_present_state_reg[1]/Q
+                         net (fo=4, unplaced)         0.208     1.083    FSM_onehot_present_state_reg_n_0_[1]
+                         LUT2 (Prop_lut2_I0_O)        0.098     1.181 f  sauv_B[7]_i_1/O
+                         net (fo=45, unplaced)        0.290     1.471    sauv_B[7]_i_1_n_0
+                         FDCE                                         f  En_reg/CLR
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    E3                                                0.000     0.000 r  H (IN)
+                         net (fo=0)                   0.000     0.000    H
+    E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  H_IBUF_inst/O
+                         net (fo=1, unplaced)         0.356     0.794    H_IBUF
+                         BUFG (Prop_bufg_I_O)         0.029     0.823 r  H_IBUF_BUFG_inst/O
+                         net (fo=69, unplaced)        0.259     1.082    H_IBUF_BUFG
+                         FDCE                                         r  En_reg/C
+                         clock pessimism             -0.209     0.873    
+                         FDCE (Remov_fdce_C_CLR)     -0.088     0.785    En_reg
+  -------------------------------------------------------------------
+                         required time                         -0.785    
+                         arrival time                           1.471    
+  -------------------------------------------------------------------
+                         slack                                  0.686    
+
+
+
+
+

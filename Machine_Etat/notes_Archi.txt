@@ -1,0 +1,10 @@
+NOTES:
+considering the "report_timing_summary" and following the steps on the site you sent me, you can check there in "mytiming.rpt" that 
+"The requirement was 10 ns, and the slack 7.259 ns, which means that we could have asked for a clock period 7.259 ns
+shorter and it would still be OK. So it could have been 10 – 7.259 = 2.741 ns, which is some 365 MHz."
+the document is inside the folder of the project.
+
+if you can't open the project like today, just copy the source "FSM_mult1" is the one I did with one process. and if you need that,
+change the "simu_FSM" to be compatible with the new source.
+
+there's a printscreem "simu_1process" showing it works.
